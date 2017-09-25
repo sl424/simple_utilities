@@ -1,0 +1,3 @@
+#!/bin/bash
+
+tar cvjf otp.tar.bz2 *.c *.h plaintext* p4gradingscript compileall 

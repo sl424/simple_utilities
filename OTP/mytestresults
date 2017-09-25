@@ -1,0 +1,161 @@
+#Initializing - Cleaning up - ignore Operation Not Permitted errors
+
+#-----------------------------------------
+#START OF GRADING SCRIPT
+#keygen 20 > key20
+#5 POINTS: key20 must exist
+key20 exists!
+
+#-----------------------------------------
+#5 POINTS: Number of characters in key20, should be 21:
+21 key20
+
+#-----------------------------------------
+#keygen 70000 > key70000
+#5 POINTS: Number of characters in key70000, should be 70001:
+70001 key70000
+
+#-----------------------------------------
+#otp_enc plaintext1 key20 $encport
+#10 POINTS: Should return error about too-short key
+Error, key key20 is too short
+
+#-----------------------------------------
+#otp_enc plaintext1 key70000 $encport
+#20 POINTS: Should return encrypted version of plaintext1
+SOYBTU TNTLKARCHRFDOOGDEIJX HPDPXXGW
+
+#-----------------------------------------
+#otp_enc plaintext1 key70000 $encport > ciphertext1
+#10 POINTS: ciphertext1 must exist
+ciphertext1 exists!
+
+#-----------------------------------------
+#10 POINTS: ciphertext1 must be same number of chars as source
+#wc -m plaintext1
+37 plaintext1
+#Should be same: wc -m ciphertext1
+37 ciphertext1
+
+#-----------------------------------------
+#5 POINTS: ciphertext1 should look encrypted
+SOYBTU TNTLKARCHRFDOOGDEIJX HPDPXXGW
+
+#-----------------------------------------
+#otp_dec ciphertext1 key70000 $encport
+#5 POINTS: Should fail giving error that otp_dec cannot use otp_enc_d
+ID ERROR: Connection refused
+CLIENT: otp_dec cannot use port
+
+#-----------------------------------------
+#20 POINTS: should return decrypted ciphertext1 that matches source
+#cat plaintext1
+THE RED GOOSE FLIES AT MIDNIGHT STOP
+#otp_dec ciphertext1 key70000 $decport
+THE RED GOOSE FLIES AT MIDNIGHT STOP
+
+#-----------------------------------------
+#otp_dec ciphertext1 key70000 $decport > plaintext1_a
+#10 POINTS: plaintext1_a must exist
+plaintext1_a exists!
+
+#-----------------------------------------
+#cmp plaintext1 plaintext1_a
+#5 POINTS: plaintext1 must be the same as plaintext1_a:
+#echo $? should be == 0, which means the cmp succeeded!
+0
+
+#-----------------------------------------
+#20 POINTS: concurrent test of encryption - look for 4 properly-sized ciphertext# files, or 5 where the 5th is 0 bytes
+#5 POINTS: Should be only one error about plaintext5 being bad
+Ten second sleep, your program must complete in this time
+Error, contains bad characters
+total 860
+drwxr-xr-x  2 chewie chewie   4096 Nov 25 15:25 ./
+drwxr-xr-x 12 chewie chewie   4096 Nov 23 09:37 ../
+-rw-r--r--  1 chewie chewie     37 Nov 25 15:25 ciphertext1
+-rw-r--r--  1 chewie chewie    317 Nov 25 15:25 ciphertext2
+-rw-r--r--  1 chewie chewie     17 Nov 25 15:25 ciphertext3
+-rw-r--r--  1 chewie chewie  69333 Nov 25 15:25 ciphertext4
+-rw-r--r--  1 chewie chewie      0 Nov 25 15:25 ciphertext5
+-rwxr-xr-x  1 chewie chewie    176 Nov 25 10:36 compileall
+-rw-r--r--  1 chewie chewie   1025 Nov 25 10:26 key
+-rw-r--r--  1 chewie chewie   1025 Nov 25 10:27 key2
+-rw-r--r--  1 chewie chewie     21 Nov 25 15:25 key20
+-rw-r--r--  1 chewie chewie  70001 Nov 25 15:25 key70000
+-rwxr-xr-x  1 chewie chewie   8744 Nov 25 15:25 keygen
+-rw-r--r--  1 chewie chewie    524 Nov 25 10:15 keygen.c
+-rw-r--r--  1 chewie chewie      6 Nov 25 00:27 msg
+-rw-r--r--  1 chewie chewie   2369 Nov 25 15:25 mytestresults
+-rw-r--r--  1 chewie chewie  56913 Nov 22 19:49 One-time pad - Wikipedia.htm
+-rwxr-xr-x  1 chewie chewie  13936 Nov 25 15:25 otp_dec
+-rw-r--r--  1 chewie chewie   4480 Nov 25 15:25 otp_dec.c
+-rwxr-xr-x  1 chewie chewie  14152 Nov 25 15:25 otp_dec_d
+-rw-r--r--  1 chewie chewie   5688 Nov 25 15:25 otp_dec_d.c
+-rwxr-xr-x  1 chewie chewie  13936 Nov 25 15:25 otp_enc
+-rw-r--r--  1 chewie chewie   4562 Nov 25 15:25 otp_enc.c
+-rwxr-xr-x  1 chewie chewie  14152 Nov 25 15:25 otp_enc_d
+-rw-r--r--  1 chewie chewie   5643 Nov 25 15:24 otp_enc_d.c
+-rwxr-xr-x  1 chewie chewie   5004 Nov 25 14:46 p4gradingscript
+-rw-r--r--  1 chewie chewie     37 Nov 22 19:50 plaintext1
+-rw-r--r--  1 chewie chewie    317 Nov 22 19:50 plaintext2
+-rw-r--r--  1 chewie chewie     17 Nov 22 19:50 plaintext3
+-rw-r--r--  1 chewie chewie  69333 Nov 22 19:50 plaintext4
+-rw-r--r--  1 chewie chewie     42 Nov 22 19:51 plaintext5
+-rw-r--r--  1 chewie chewie 383433 Nov 22 20:00 Program4 Grading.pdf
+-rw-r--r--  1 chewie chewie  28117 Nov 22 09:06 Program 4 - OTP.htm
+-rw-r--r--  1 chewie chewie   2947 Nov 23 21:26 rdwrn.c
+-rw-r--r--  1 chewie chewie    929 Nov 23 21:26 rdwrn.h
+-rw-r--r--  1 chewie chewie     38 Nov 25 10:22 test
+
+#-----------------------------------------
+#15 POINTS: concurrent test of decryption - look for 4 plaintext#_a files that match the plaintext# files
+#Ten second sleep, your program must complete in this time
+total 944
+drwxr-xr-x  2 chewie chewie   4096 Nov 25 15:26 ./
+drwxr-xr-x 12 chewie chewie   4096 Nov 23 09:37 ../
+-rw-r--r--  1 chewie chewie     37 Nov 25 15:25 ciphertext1
+-rw-r--r--  1 chewie chewie    317 Nov 25 15:25 ciphertext2
+-rw-r--r--  1 chewie chewie     17 Nov 25 15:25 ciphertext3
+-rw-r--r--  1 chewie chewie  69333 Nov 25 15:25 ciphertext4
+-rw-r--r--  1 chewie chewie      0 Nov 25 15:25 ciphertext5
+-rwxr-xr-x  1 chewie chewie    176 Nov 25 10:36 compileall
+-rw-r--r--  1 chewie chewie   1025 Nov 25 10:26 key
+-rw-r--r--  1 chewie chewie   1025 Nov 25 10:27 key2
+-rw-r--r--  1 chewie chewie     21 Nov 25 15:25 key20
+-rw-r--r--  1 chewie chewie  70001 Nov 25 15:25 key70000
+-rwxr-xr-x  1 chewie chewie   8744 Nov 25 15:25 keygen
+-rw-r--r--  1 chewie chewie    524 Nov 25 10:15 keygen.c
+-rw-r--r--  1 chewie chewie      6 Nov 25 00:27 msg
+-rw-r--r--  1 chewie chewie   4694 Nov 25 15:26 mytestresults
+-rw-r--r--  1 chewie chewie  56913 Nov 22 19:49 One-time pad - Wikipedia.htm
+-rwxr-xr-x  1 chewie chewie  13936 Nov 25 15:25 otp_dec
+-rw-r--r--  1 chewie chewie   4480 Nov 25 15:25 otp_dec.c
+-rwxr-xr-x  1 chewie chewie  14152 Nov 25 15:25 otp_dec_d
+-rw-r--r--  1 chewie chewie   5688 Nov 25 15:25 otp_dec_d.c
+-rwxr-xr-x  1 chewie chewie  13936 Nov 25 15:25 otp_enc
+-rw-r--r--  1 chewie chewie   4562 Nov 25 15:25 otp_enc.c
+-rwxr-xr-x  1 chewie chewie  14152 Nov 25 15:25 otp_enc_d
+-rw-r--r--  1 chewie chewie   5643 Nov 25 15:24 otp_enc_d.c
+-rwxr-xr-x  1 chewie chewie   5004 Nov 25 14:46 p4gradingscript
+-rw-r--r--  1 chewie chewie     37 Nov 22 19:50 plaintext1
+-rw-r--r--  1 chewie chewie     37 Nov 25 15:26 plaintext1_a
+-rw-r--r--  1 chewie chewie    317 Nov 22 19:50 plaintext2
+-rw-r--r--  1 chewie chewie    317 Nov 25 15:26 plaintext2_a
+-rw-r--r--  1 chewie chewie     17 Nov 22 19:50 plaintext3
+-rw-r--r--  1 chewie chewie     17 Nov 25 15:26 plaintext3_a
+-rw-r--r--  1 chewie chewie  69333 Nov 22 19:50 plaintext4
+-rw-r--r--  1 chewie chewie  69333 Nov 25 15:26 plaintext4_a
+-rw-r--r--  1 chewie chewie     42 Nov 22 19:51 plaintext5
+-rw-r--r--  1 chewie chewie 383433 Nov 22 20:00 Program4 Grading.pdf
+-rw-r--r--  1 chewie chewie  28117 Nov 22 09:06 Program 4 - OTP.htm
+-rw-r--r--  1 chewie chewie   2947 Nov 23 21:26 rdwrn.c
+-rw-r--r--  1 chewie chewie    929 Nov 23 21:26 rdwrn.h
+-rw-r--r--  1 chewie chewie     38 Nov 25 10:22 test
+
+#-----------------------------------------
+#Cleaning up - ignore Operation Not Permitted errors
+./p4gradingscript: line 138: 25495 Terminated              otp_enc_d $encport
+./p4gradingscript: line 138: 25496 Terminated              otp_dec_d $decport
+
+#SCRIPT COMPLETE

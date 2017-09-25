@@ -1,0 +1,1126 @@
+Hide <#>
+<//en.wikipedia.org/wiki/Wikipedia:Wikipedia_Asian_Month>
+This November is the Wikipedia Asian Month. Come join us.
+<//en.wikipedia.org/wiki/Wikipedia:Wikipedia_Asian_Month>
+
+
+  One-time pad
+
+From Wikipedia, the free encyclopedia
+Jump to: navigation <#mw-head>, search <#p-search>
+</wiki/File:NSA_DIANA_one_time_pad.tiff>
+</wiki/File:NSA_DIANA_one_time_pad.tiff>
+A format of one-time pad used by the U.S. National Security Agency
+</wiki/National_Security_Agency>, code named DIANA. The table on the
+right is an aid for converting between plaintext and ciphertext using
+the characters at left as the key.
+
+In cryptography </wiki/Cryptography>, the *one-time pad* (*OTP*) is an
+encryption </wiki/Encryption> technique that cannot be cracked
+</wiki/Cryptanalysis>, but requires the use of a one-time pre-shared key
+the same size as the message being sent. In this technique, a plaintext
+</wiki/Plaintext> is paired with a random secret key
+</wiki/Key_(cryptography)> (also referred to as /a one-time pad/). Then,
+each bit or character of the plaintext is encrypted by combining it with
+the corresponding bit or character from the pad using modular addition
+</wiki/Modular_addition>. If the key is truly random </wiki/Random>, is
+at least as long as the plaintext, is never reused in whole or in part,
+and is kept completely secret </wiki/Secret>, then the resulting
+ciphertext </wiki/Ciphertext> will be impossible to decrypt or
+break.^[1] <#cite_note-Numbers_Stations-1> ^[2] <#cite_note-2> ^[3]
+<#cite_note-3> It has also been proven that any cipher with the perfect
+secrecy property must use keys with effectively the same requirements as
+OTP keys.^[4] <#cite_note-shannon-4> However, practical problems have
+prevented one-time pads from being widely used.
+
+First described by Frank Miller </wiki/Frank_Miller_(cryptography)> in
+1882,^[5] <#cite_note-5> ^[6] <#cite_note-BELLOVIN1-6> the one-time pad
+was re-invented in 1917. On July 22, 1919, U.S. Patent 1,310,719 was
+issued to Gilbert S. Vernam </wiki/Gilbert_Vernam> for the XOR
+</wiki/Exclusive_or> operation used for the encryption of a one-time
+pad.^[7] <#cite_note-Google-7> Derived from his /Vernam cipher/, the
+system was a cipher that combined a message with a key read from a
+punched tape </wiki/Punched_tape>. In its original form, Vernam's system
+was vulnerable because the key tape was a loop, which was reused
+whenever the loop made a full cycle. One-time use came later, when
+Joseph Mauborgne </wiki/Joseph_Mauborgne> recognized that if the key
+tape were totally random, then cryptanalysis </wiki/Cryptanalysis> would
+be impossible.^[8] <#cite_note-8>
+
+The "pad" part of the name comes from early implementations where the
+key material was distributed as a pad of paper, so that the top sheet
+could be easily torn off and destroyed after use. For ease of
+concealment, the pad was sometimes reduced to such a small size that a
+powerful magnifying glass </wiki/Loupe> was required to use it. The KGB
+</wiki/KGB> used pads of such size that they could fit in the palm of
+one's hand,^[9] <#cite_note-9> or in a walnut </wiki/Walnut> shell.^[10]
+<#cite_note-10> To increase security, one-time pads were sometimes
+printed onto sheets of highly flammable nitrocellulose
+</wiki/Nitrocellulose>, so that they could be quickly burned after use.
+
+There is some ambiguity to the term because some authors^[/who?
+</wiki/Wikipedia:Manual_of_Style/Words_to_watch#Unsupported_attributions>/]
+use the terms "Vernam cipher" and "one-time pad" synonymously, while
+others refer to any additive stream cipher </wiki/Stream_cipher> as a
+"Vernam cipher", including those based on a cryptographically secure
+pseudorandom number generator
+</wiki/Cryptographically_secure_pseudorandom_number_generator>
+(CSPRNG).^[11] <#cite_note-kahn-11>
+
+
+    Contents
+
+ [hide] 
+
+  * 1 History <#History>
+  * 2 Example <#Example>
+      o 2.1 Attempt at cryptanalysis <#Attempt_at_cryptanalysis>
+  * 3 Perfect secrecy <#Perfect_secrecy>
+  * 4 Problems <#Problems>
+      o 4.1 Key distribution <#Key_distribution>
+      o 4.2 Authentication <#Authentication>
+      o 4.3 True randomness <#True_randomness>
+  * 5 Uses <#Uses>
+      o 5.1 Applicability <#Applicability>
+      o 5.2 Historical uses <#Historical_uses>
+      o 5.3 Exploits <#Exploits>
+  * 6 See also <#See_also>
+  * 7 References <#References>
+  * 8 Further reading <#Further_reading>
+  * 9 External links <#External_links>
+
+
+    History[edit </w/index.php?title=One-time_pad&action=edit&section=1>]
+
+Frank Miller </wiki/Frank_Miller_(cryptography)> in 1882 was the first
+to describe the one-time pad system for securing telegraphy.^[6]
+<#cite_note-BELLOVIN1-6> ^[12] <#cite_note-bio-12>
+
+The next one-time pad system was electrical. In 1917, Gilbert Vernam
+</wiki/Gilbert_Vernam> (of AT&T Corporation </wiki/AT%26T_Corporation>)
+invented and later patented in 1919 (U.S. Patent 1,310,719
+<//www.google.com/patents/US1310719>) a cipher based on teleprinter
+</wiki/Teleprinter> technology. Each character in a message was
+electrically combined with a character on a paper tape
+</wiki/Paper_tape> key. Joseph Mauborgne </wiki/Joseph_Mauborgne> (then
+a captain </wiki/Captain_(U.S._Army)> in the U.S. Army </wiki/U.S._Army>
+and later chief of the Signal Corps
+</wiki/Signal_Corps_(United_States_Army)>) recognized that the character
+sequence on the key tape could be completely random and that, if so,
+cryptanalysis would be more difficult. Together they invented the first
+one-time tape system.^[11] <#cite_note-kahn-11>
+
+The next development was the paper pad system. Diplomats had long used
+codes </wiki/Code> and ciphers </wiki/Cipher> for confidentiality and to
+minimize telegraph </wiki/Telegraphy> costs. For the codes, words and
+phrases were converted to groups of numbers (typically 4 or 5 digits)
+using a dictionary-like codebook </wiki/Codebook>. For added security,
+secret numbers could be combined with (usually modular addition) each
+code group before transmission, with the secret numbers being changed
+periodically (this was called superencryption </wiki/Superencryption>).
+In the early 1920s, three German cryptographers (Werner Kunze, Rudolf
+Schauffler and Erich Langlotz), who were involved in breaking such
+systems, realized that they could never be broken if a separate randomly
+chosen additive number was used for every code group. They had duplicate
+paper pads printed with lines of random number groups. Each page had a
+serial number and eight lines. Each line had six 5-digit numbers. A page
+would be used as a work sheet to encode a message and then destroyed.
+The serial number of the page would be sent with the encoded message.
+The recipient would reverse the procedure and then destroy his copy of
+the page. The German foreign office put this system into operation by
+1923.^[11] <#cite_note-kahn-11>
+
+A separate notion was the use of a one-time pad of letters to encode
+plaintext directly as in the example below. Leo Marks </wiki/Leo_Marks>
+describes inventing such a system for the British Special Operations
+Executive </wiki/Special_Operations_Executive> during World War II
+</wiki/World_War_II>, though he suspected at the time that it was
+already known in the highly compartmentalized world of cryptography, as
+for instance at Bletchley Park </wiki/Bletchley_Park>.^[13]
+<#cite_note-marks-13>
+
+The final discovery was by Claude Shannon </wiki/Claude_Shannon> in the
+1940s who recognized and proved the theoretical significance of the
+one-time pad system. Shannon delivered his results in a classified
+report in 1945, and published them openly in 1949.^[4]
+<#cite_note-shannon-4> At the same time, Vladimir Kotelnikov
+</wiki/Vladimir_Kotelnikov> had independently proved absolute security
+of the one-time pad; his results were delivered in 1941 in a report that
+apparently remains classified.^[14] <#cite_note-kotelnikov-14>
+
+
+    Example[edit </w/index.php?title=One-time_pad&action=edit&section=2>]
+
+Suppose Alice </wiki/Alice_and_Bob> wishes to send the message "HELLO"
+to Bob </wiki/Alice_and_Bob>. Assume two pads of paper containing
+identical random sequences of letters were somehow previously produced
+and securely issued to both. Alice chooses the appropriate unused page
+from the pad. The way to do this is normally arranged for in advance, as
+for instance 'use the 12th sheet on 1 May', or 'use the next available
+sheet for the next message'.
+
+The material on the selected sheet is the /key/ for this message. Each
+letter from the pad will be combined in a predetermined way with one
+letter of the message. (It is common, but not required, to assign each
+letter a numerical value, e.g., "A" is 0, "B" is 1, and so on.)
+
+In this example, the technique is to combine the key and the message
+using modular addition </wiki/Modular_arithmetic>. The numerical values
+of corresponding message and key letters are added together, modulo 26.
+So, if key material begins with "XMCKL" and the message is "HELLO", then
+the coding would be done as follows:
+
+      H       E       L       L       O  message
+   7 (H)   4 (E)  11 (L)  11 (L)  14 (O) message
++ 23 (X)  12 (M)   2 (C)  10 (K)  11 (L) key
+= 30      16      13      21      25     message + key
+=  4 (E)  16 (Q)  13 (N)  21 (V)  25 (Z) (message + key) mod 26
+      E       Q       N       V       Z  → ciphertext
+
+If a number is larger than 26, then the remainder after subtraction of
+26 is taken in modular arithmetic fashion. This simply means that if the
+computations "go past" Z, the sequence starts again at A.
+
+The ciphertext to be sent to Bob is thus "EQNVZ". Bob uses the matching
+key page and the same process, but in reverse, to obtain the plaintext
+</wiki/Plaintext>. Here the key is /subtracted/ from the ciphertext,
+again using modular arithmetic:
+
+       E       Q       N       V       Z  ciphertext
+    4 (E)  16 (Q)  13 (N)  21 (V)  25 (Z) ciphertext
+-  23 (X)  12 (M)   2 (C)  10 (K)  11 (L) key
+= -19       4      11      11      14     ciphertext – key
+=   7 (H)   4 (E)  11 (L)  11 (L)  14 (O) ciphertext – key (mod 26)
+       H       E       L       L       O  → message
+
+Similar to the above, if a number is negative then 26 is added to make
+the number zero or higher.
+
+Thus Bob recovers Alice's plaintext, the message "HELLO". Both Alice and
+Bob destroy the key sheet immediately after use, thus preventing reuse
+and an attack against the cipher. The KGB </wiki/KGB> often issued its
+agents </wiki/Espionage> one-time pads printed on tiny sheets of "flash
+paper"—paper chemically converted to nitrocellulose
+</wiki/Nitrocellulose>, which burns almost instantly and leaves no
+ash.^[15] <#cite_note-15>
+
+The classical one-time pad of espionage used actual pads of minuscule,
+easily concealed paper, a sharp pencil, and some mental arithmetic
+</wiki/Mental_arithmetic>. The method can be implemented now as a
+software program, using data files as input (plaintext), output
+(ciphertext) and key material (the required random sequence). The XOR
+</wiki/XOR> operation is often used to combine the plaintext and the key
+elements, and is especially attractive on computers since it is usually
+a native machine instruction and is therefore very fast. However, it is
+difficult to ensure that the key material is actually random, is used
+only once, never becomes known to the opposition, and is completely
+destroyed after use. The auxiliary parts of a software one-time pad
+implementation present real challenges: secure handling/transmission of
+plaintext, truly random keys, and one-time-only use of the key.
+
+
+      Attempt at cryptanalysis[edit
+      </w/index.php?title=One-time_pad&action=edit&section=3>]
+
+To continue the example from above, suppose Eve intercepts Alice's
+ciphertext: "EQNVZ". If Eve had infinite time, she would find that the
+key "XMCKL" would produce the plaintext "HELLO", but she would also find
+that the key "TQURI" would produce the plaintext "LATER", an equally
+plausible message:
+
+    4 (E)  16 (Q)  13 (N)  21 (V)  25 (Z) ciphertext
+−  19 (T)  16 (Q)  20 (U)  17 (R)   8 (I) possible key
+= −15       0      −7       4      17     ciphertext-key
+=  11 (L)   0 (A)  19 (T)   4 (E)  17 (R) ciphertext-key (mod 26)
+
+In fact, it is possible to "decrypt" out of the ciphertext any message
+whatsoever with the same number of characters, simply by using a
+different key, and there is no information in the ciphertext which will
+allow Eve to choose among the various possible readings of the ciphertext.
+
+
+    Perfect secrecy[edit
+    </w/index.php?title=One-time_pad&action=edit&section=4>]
+
+One-time pads are "information-theoretically secure
+</wiki/Information_theoretic_security>" in that the encrypted message
+(i.e., the ciphertext </wiki/Ciphertext>) provides no information about
+the original message to a cryptanalyst </wiki/Cryptanalyst> (except the
+maximum possible length^[16] <#cite_note-16> of the message). This is a
+very strong notion of security first developed during WWII by Claude
+Shannon </wiki/Claude_Shannon> and proved, mathematically, to be true
+for the one-time pad by Shannon about the same time. His result was
+published in the /Bell Labs Technical Journal/ in 1949.^[17]
+<#cite_note-Shannon-17> Properly used, one-time pads are secure in this
+sense even against adversaries with infinite computational power.
+
+Claude Shannon proved, using information theory
+</wiki/Information_theory> considerations, that the one-time pad has a
+property he termed /perfect secrecy/; that is, the ciphertext /C/ gives
+absolutely no additional information </wiki/Information> about the
+plaintext </wiki/Plaintext>. This is because, given a truly random key
+which is used only once, a ciphertext can be translated into /any/
+plaintext of the same length, and all are equally likely. Thus, the /a
+priori </wiki/A_priori_(philosophy)>/ probability of a plaintext message
+/M/ is the same as the /a posteriori </wiki/Empirical_knowledge>/
+probability of a plaintext message /M/ given the corresponding
+ciphertext. Mathematically, this is expressed as /H/(/M/)=/H/(/M/|/C/),
+where /H/(/M/) is the entropy </wiki/Information_entropy> of the
+plaintext and /H/(/M/|/C/) is the conditional entropy
+</wiki/Conditional_entropy> of the plaintext given the ciphertext /C/.
+Perfect secrecy is a strong notion of cryptanalytic difficulty.^[4]
+<#cite_note-shannon-4>
+
+Conventional symmetric encryption algorithms use complex patterns of
+substitution and transpositions. For the best of these currently in use,
+it is not known whether there can be a cryptanalytic procedure which can
+reverse (or, usefully, partially reverse) these transformations without
+knowing the key used during encryption. Asymmetric encryption algorithms
+depend on mathematical problems that are thought to be difficult to
+solve, such as integer factorization </wiki/Integer_factorization> and
+discrete logarithms </wiki/Discrete_logarithm>. However, there is no
+proof that these problems are hard, and a mathematical breakthrough
+could make existing systems vulnerable to attack.
+
+Given perfect secrecy, in contrast to conventional symmetric encryption,
+OTP is immune even to brute-force attacks. Trying all keys simply yields
+all plaintexts, all equally likely to be the actual plaintext. Even with
+known plaintext, like part of the message being known, brute-force
+attacks cannot be used, since an attacker is unable to gain any
+information about the parts of the key needed to decrypt the rest of the
+message. The parts that are known will reveal /only/ the parts of the
+key corresponding to them, and they correspond on a strictly one-to-one
+basis; no part of the key is dependent on any other part.
+
+
+    Problems[edit </w/index.php?title=One-time_pad&action=edit&section=5>]
+
+Despite Shannon's proof of its security, the one-time pad has serious
+drawbacks in practice because it requires:
+
+  * Truly random (as opposed to pseudorandom </wiki/Pseudorandomness>)
+    one-time pad values, which is a non-trivial requirement. See
+    Pseudorandom number generator </wiki/Pseudorandom_number_generator>.
+  * Secure generation and exchange of the one-time pad values, which
+    must be at least as long as the message. (The security of the
+    one-time pad is only as secure as the security of the one-time pad
+    exchange).
+  * Careful treatment to make sure that it continues to remain secret,
+    and is disposed of correctly preventing any reuse in whole or
+    part—hence "one time". See data remanence </wiki/Data_remanence> for
+    a discussion of difficulties in completely erasing computer media.
+
+One-time pads solve few current practical problems in cryptography. High
+quality ciphers are widely available and their security is not
+considered a major worry at present.^[/when?
+</wiki/Wikipedia:Manual_of_Style/Dates_and_numbers#Chronological_items>/] ^[/citation
+needed </wiki/Wikipedia:Citation_needed>/] Such ciphers are almost
+always easier to employ than one-time pads; the amount of key material
+which must be properly generated and securely distributed is far
+smaller, and public key cryptography </wiki/Public_key_cryptography>
+overcomes this problem.^[18] <#cite_note-schneierotp-18>
+
+
+      Key distribution[edit
+      </w/index.php?title=One-time_pad&action=edit&section=6>]
+
+Further information: Key distribution </wiki/Key_distribution>
+
+Because the pad, like all shared secrets </wiki/Shared_secret>, must be
+passed and kept secure, and the pad has to be at least as long as the
+message, there is often no point in using one-time padding, as one can
+simply send the plain text instead of the pad (as both can be the same
+size and have to be sent securely). However, once a very long pad has
+been securely sent (e.g., a computer disk full of random data), it can
+be used for numerous future messages, until the sum of their sizes
+equals the size of the pad. Quantum key distribution
+</wiki/Quantum_key_distribution> also proposes a solution to this problem.
+
+Distributing very long one-time pad keys is inconvenient and usually
+poses a significant security risk.^[1] <#cite_note-Numbers_Stations-1>
+The pad is essentially the encryption key, but unlike keys for modern
+ciphers, it must be extremely long and is much too difficult for humans
+to remember. Storage media such as thumb drives </wiki/Thumb_drive>,
+DVD-Rs </wiki/DVD-R> or personal digital audio players
+</wiki/Digital_audio_player> can be used to carry a very large
+one-time-pad from place to place in a non-suspicious way, but even so
+the need to transport the pad physically is a burden compared to the key
+negotiation protocols of a modern public-key cryptosystem, and such
+media cannot reliably be erased securely by any means short of physical
+destruction (e.g., incineration). A 4.7 GB DVD-R full of one-time-pad
+data, if shredded into particles 1 mm² in size, leaves over 4 megabits
+</wiki/Megabit> of (admittedly hard to recover, but not impossibly so)
+data on each particle.^[/citation needed
+</wiki/Wikipedia:Citation_needed>/] In addition, the risk of compromise
+during transit (for example, a pickpocket </wiki/Pickpocket> swiping,
+copying and replacing the pad) is likely to be much greater in practice
+than the likelihood of compromise for a cipher such as AES
+</wiki/Advanced_Encryption_Standard>. Finally, the effort needed to
+manage one-time pad key material scales </wiki/Scalability> very badly
+for large networks of communicants—the number of pads required goes up
+as the square of the number of users freely exchanging messages. For
+communication between only two persons, or a star network
+</wiki/Star_network> topology, this is less of a problem.
+
+The key material must be securely disposed of after use, to ensure the
+key material is never reused and to protect the messages sent.^[1]
+<#cite_note-Numbers_Stations-1> Because the key material must be
+transported from one endpoint to another, and persist until the message
+is sent or received, it can be more vulnerable to forensic recovery
+</wiki/Computer_forensics> than the transient plaintext it protects (see
+data remanence </wiki/Data_remanence>).
+
+
+      Authentication[edit
+      </w/index.php?title=One-time_pad&action=edit&section=7>]
+
+As traditionally used, one-time pads provide no message authentication
+</wiki/Authentication>, the lack of which can pose a security threat in
+real-world systems. For example, an attacker who knows that the message
+contains "meet jane and me tomorrow at three thirty pm" can derive the
+corresponding codes of the pad directly from the two known elements (the
+encrypted text and the known plaintext). The attacker can then replace
+that text by any other text of exactly the same length, such as "three
+thirty meeting is cancelled, stay home", The attacker's knowledge of the
+one-time pad is limited to this byte length, which must be maintained
+for any other content of the message to remain valid. This is a little
+different from malleability </wiki/Malleability_(cryptography)>^[19]
+<#cite_note-19> where it is not taken necessarily that the plaintext is
+known. /See also/ stream cipher attack </wiki/Stream_cipher_attack>.
+
+Standard techniques to prevent this, such as the use of a message
+authentication code </wiki/Message_authentication_code> can be used
+along with a one-time pad system to prevent such attacks, as can
+classical methods such as variable length padding
+</wiki/Padding_(cryptography)> and Russian copulation
+</wiki/Russian_copulation>, but they all lack the perfect security the
+OTP itself has. Universal hashing </wiki/Universal_hashing> provides a
+way to authenticate messages up to an arbitrary security bound (i.e.,
+for any p>0, a large enough hash ensures that even a computationally
+unbounded attacker's likelihood of successful forgery is less than p),
+but this uses additional random data from the pad, and removes the
+possibility of implementing the system without a computer.
+
+
+      True randomness[edit
+      </w/index.php?title=One-time_pad&action=edit&section=8>]
+
+High-quality random numbers are difficult to generate. The random number
+generation functions in most programming language
+</wiki/Programming_language> libraries are not suitable for
+cryptographic use. Even those generators that are suitable for normal
+cryptographic use, including /dev/random </wiki//dev/random> and many
+hardware random number generators
+</wiki/Hardware_random_number_generator>, may make some use of
+cryptographic functions whose security has not been proven.
+
+In particular, one-time use is absolutely necessary. If a one-time pad
+is used just twice, simple mathematical operations can reduce it to a
+running key cipher </wiki/Running_key_cipher>. If both plaintexts are in
+a natural language (e.g., English or Russian or Irish) then, even though
+both are secret, each stands a very high chance of being recovered by
+heuristic </wiki/Heuristic> cryptanalysis, with possibly a few
+ambiguities. Of course the longer message can only be broken for the
+portion that overlaps the shorter message, plus perhaps a little more by
+completing a word or phrase. The most famous exploit of this
+vulnerability occurred with the Venona project
+</wiki/Venona_project>.^[20] <#cite_note-nsa-20>
+
+
+    Uses[edit </w/index.php?title=One-time_pad&action=edit&section=9>]
+
+
+      Applicability[edit
+      </w/index.php?title=One-time_pad&action=edit&section=10>]
+
+</wiki/File:PersonalStorageDevices.agr.jpg>
+</wiki/File:PersonalStorageDevices.agr.jpg>
+Any digital data storage device </wiki/Data_storage_device> can be used
+to transport one-time pad data.
+
+Despite its problems, the one-time-pad retains some practical interest.
+In some hypothetical espionage situations, the one-time pad might be
+useful because it can be computed by hand with only pencil and paper.
+Indeed, nearly all other high quality ciphers are entirely impractical
+without computers. Spies can receive their pads in person from their
+"handlers." In the modern world, however, computers (such as those
+embedded in personal electronic devices such as mobile phones
+</wiki/Mobile_phone>) are so ubiquitous that possessing a computer
+suitable for performing conventional encryption (for example, a phone
+which can run concealed cryptographic software) will usually not attract
+suspicion.
+
+  * The one-time-pad is the optimum cryptosystem with theoretically
+    perfect secrecy.
+  * The one-time-pad is one of the most practical methods of encryption
+    where one or both parties must do all work by hand, without the aid
+    of a computer. This made it important in the pre-computer era, and
+    it could conceivably still be useful in situations where possession
+    of a computer is illegal or incriminating or where trustworthy
+    computers are not available.
+  * One-time pads are practical in situations where two parties in a
+    secure environment must be able to depart from one another and
+    communicate from two separate secure environments with perfect secrecy.
+  * The one-time-pad can be used in superencryption
+    </wiki/Superencryption>.^[21] <#cite_note-21>
+  * The algorithm most commonly associated with quantum key distribution
+    </wiki/Quantum_key_distribution> is the one-time pad.
+  * The one-time pad is mimicked by stream ciphers </wiki/Stream_cipher>.
+  * The one-time pad can be a part of an introduction to
+    cryptography.^[22] <#cite_note-22>
+
+
+      Historical uses[edit
+      </w/index.php?title=One-time_pad&action=edit&section=11>]
+
+One-time pads have been used in special circumstances since the early
+1900s. In 1923, it was employed for diplomatic communications by the
+German diplomatic establishment.^[23] <#cite_note-23> The Weimar
+Republic </wiki/Weimar_Republic> Diplomatic Service began using the
+method in about 1920. The breaking of poor Soviet
+</wiki/Union_of_Soviet_Socialist_Republics> cryptography by the British
+</wiki/United_Kingdom>, with messages made public for political reasons
+in two instances in the 1920s, appear to have induced the U.S.S.R. to
+adopt one-time pads for some purposes by around 1930. KGB </wiki/KGB>
+spies are also known to have used pencil and paper one-time pads more
+recently. Examples include Colonel Rudolf Abel </wiki/Rudolf_Abel>, who
+was arrested and convicted in New York City </wiki/New_York_City> in the
+1950s, and the 'Krogers' (i.e., Morris </wiki/Morris_Cohen_(spy)> and
+Lona Cohen </wiki/Lona_Cohen>), who were arrested and convicted of
+espionage in the United Kingdom </wiki/United_Kingdom> in the early
+1960s. Both were found with physical one-time pads in their possession.
+
+A number of nations have used one-time pad systems for their sensitive
+traffic. Leo Marks </wiki/Leo_Marks> reports that the British Special
+Operations Executive </wiki/Special_Operations_Executive> used one-time
+pads in World War II to encode traffic between its offices. One-time
+pads for use with its overseas agents were introduced late in the
+war.^[13] <#cite_note-marks-13> A few British one-time tape cipher
+machines include the Rockex </wiki/Rockex> and Noreen </wiki/Noreen>.
+The German Stasi </wiki/Stasi> Sprach Machine was also capable of using
+one time tape which East Germany, Russia, and even Cuba used to send
+encrypted messages to their agents.^[24] <#cite_note-Sprach_Machine-24>
+
+The World War II </wiki/World_War_II> voice scrambler </wiki/Scrambler>
+SIGSALY </wiki/SIGSALY> was also a form of one-time system. It added
+noise to the signal at one end and removed it at the other end. The
+noise was distributed to the channel ends in the form of large shellac
+records which were manufactured in unique pairs. There were both
+starting synchronization and longer-term phase drift problems which
+arose and were solved before the system could be used.
+
+The NSA </wiki/NSA> describes one-time tape systems like SIGTOT
+</w/index.php?title=SIGTOT&action=edit&redlink=1> and 5-UCO
+</wiki/5-UCO> as being used for intelligence traffic until the
+introduction of the electronic cipher based KW-26 </wiki/KW-26> in
+1957.^[25] <#cite_note-25>
+
+The hotline </wiki/Moscow-Washington_hotline> between Moscow
+</wiki/Moscow> and Washington D.C. </wiki/Washington_D.C.>, established
+in 1963 after the Cuban missile crisis </wiki/Cuban_missile_crisis>,
+used teleprinters </wiki/Teleprinter> protected by a commercial one-time
+tape system. Each country prepared the keying tapes used to encode its
+messages and delivered them via their embassy in the other country. A
+unique advantage of the OTP in this case was that neither country had to
+reveal more sensitive encryption methods to the other.^[26] <#cite_note-26>
+
+U.S. Army Special Forces used one-time pads in Vietnam. By using Morse
+code with one-time pads and continuous wave radio transmission (the
+carrier for Morse code), they achieved both secrecy and reliable
+communications.^[/citation needed </wiki/Wikipedia:Citation_needed>/]
+
+During the 1983 Invasion of Grenada </wiki/Invasion_of_Grenada>, U.S.
+forces found a supply of pairs of one-time pad books in a Cuban
+warehouse.^[27] <#cite_note-27>
+
+Starting in 1988, the African National Congress
+</wiki/African_National_Congress> (ANC) used disk-based one-time pads as
+part of a secure communication </wiki/Secure_communication> system
+between ANC leaders outside South Africa </wiki/South_Africa> and
+in-country operatives as part of Operation Vula
+</w/index.php?title=Operation_Vula&action=edit&redlink=1>, a successful
+effort to build a resistance network inside South Africa. Random numbers
+on the disk were erased after use. A Belgian airline stewardess acted as
+courier to bring in the pad disks. A regular resupply of new disks was
+needed as they were used up fairly quickly. One problem with the system
+was that it could not be used for secure data storage. Later Vula added
+a stream cipher keyed by book codes to solve this problem.^[28]
+<#cite_note-28>
+
+A related notion is the one-time code
+</wiki/Code_(cryptography)#One-time_code>—a signal, used only once,
+e.g., "Alpha" for "mission completed", "Bravo" for "mission failed" or
+even "Torch" for "Allied invasion of French Northern Africa
+</wiki/Operation_Torch>" ^[29] <#cite_note-29> cannot be "decrypted" in
+any reasonable sense of the word. Understanding the message will require
+additional information, often 'depth' of repetition, or some traffic
+analysis </wiki/Traffic_analysis>. However, such strategies (though
+often used by real operatives, and baseball </wiki/Baseball> coaches)
+are not a cryptographic one-time pad in any significant sense.
+
+
+      Exploits[edit
+      </w/index.php?title=One-time_pad&action=edit&section=12>]
+
+While one-time pads provide perfect secrecy if generated and used
+properly, small mistakes can lead to successful cryptanalysis:
+
+  * In 1944–1945, the U.S. Army </wiki/U.S._Army>'s Signals Intelligence
+    Service </wiki/Signals_Intelligence_Service> was able to solve a
+    one-time pad system used by the German Foreign Office for its
+    high-level traffic, codenamed GEE.^[30] <#cite_note-30> GEE was
+    insecure because the pads were not completely random—the machine
+    used to generate the pads produced predictable output.
+  * In 1945, the US discovered that Canberra </wiki/Canberra>–Moscow
+    </wiki/Moscow> messages were being encrypted first using a code-book
+    and then using a one-time pad. However, the one-time pad used was
+    the same one used by Moscow for Washington, DC
+    </wiki/Washington,_DC>–Moscow messages. Combined with the fact that
+    some of the Canberra–Moscow messages included known British
+    government documents, this allowed some of the encrypted messages to
+    be broken.
+  * One-time pads were employed by Soviet </wiki/Soviet_Union> espionage
+    agencies for covert communications with agents and agent
+    controllers. Analysis has shown that these pads were generated by
+    typists using actual typewriters. This method is of course not truly
+    random, as it makes certain convenient key sequences more likely
+    than others, yet it proved to be generally effective because while a
+    person will not produce truly random sequences they equally do not
+    follow the same kind of structured mathematical rules that a machine
+    would either, and each person generates ciphers in a different way
+    making attacking any message challenging. Without copies of the key
+    material used, only some defect in the generation method or reuse of
+    keys offered much hope of cryptanalysis. Beginning in the late
+    1940s, US and UK intelligence agencies were able to break some of
+    the Soviet one-time pad traffic to Moscow </wiki/Moscow> during WWII
+    as a result of errors made in generating and distributing the key
+    material. One suggestion is that Moscow Centre personnel were
+    somewhat rushed by the presence of German troops just outside Moscow
+    in late 1941 and early 1942, and they produced more than one copy of
+    the same key material during that period. This decades-long effort
+    was finally codenamed VENONA </wiki/Venona_project> (BRIDE had been
+    an earlier name); it produced a considerable amount of information,
+    including more than a little about some of the Soviet atom spies
+    </wiki/Atom_spies>. Even so, only a small percentage of the
+    intercepted messages were either fully or partially decrypted (a few
+    thousand out of several hundred thousand).^[31] <#cite_note-31>
+
+
+    See also[edit </w/index.php?title=One-time_pad&action=edit&section=13>]
+
+  * icon </wiki/File:Monitor_padlock.svg>Computer security portal
+    </wiki/Portal:Computer_security>
+
+  * Agrippa (a book of the dead) </wiki/Agrippa_(a_book_of_the_dead)>
+  * Information theoretic security </wiki/Information_theoretic_security>
+  * Numbers station </wiki/Numbers_station>
+  * One-time password </wiki/One-time_password>
+  * Session key </wiki/Session_key>
+  * Steganography </wiki/Steganography>
+  * Unicity distance </wiki/Unicity_distance>
+
+
+    References[edit
+    </w/index.php?title=One-time_pad&action=edit&section=14>]
+
+ 1. ^ Jump up to: ^/*a*/ <#cite_ref-Numbers_Stations_1-0> ^/*b*/
+    <#cite_ref-Numbers_Stations_1-1> ^/*c*/
+    <#cite_ref-Numbers_Stations_1-2> "Intro to Numbers Stations"
+    <http://www.numbers-stations.com/intro>. Retrieved 13 September 2014. 
+ 2. *Jump up ^ <#cite_ref-2>* "The only unbreakable cryptosystem
+    known—the Vernam cipher"
+    <http://www.pro-technix.com/information/crypto/pages/vernam_base.html>.
+    Pro-technix.com. Retrieved 2014-03-17. 
+ 3. *Jump up ^ <#cite_ref-3>* "One-Time Pad (OTP)"
+    <http://www.cryptomuseum.com/crypto/otp.htm>. Cryptomuseum.com.
+    Retrieved 2014-03-17. 
+ 4. ^ Jump up to: ^/*a*/ <#cite_ref-shannon_4-0> ^/*b*/
+    <#cite_ref-shannon_4-1> ^/*c*/ <#cite_ref-shannon_4-2> Shannon,
+    Claude (1949). "Communication Theory of Secrecy Systems". /Bell
+    System Technical Journal/. *28* (4): 656–715. doi
+    </wiki/Digital_object_identifier>:10.1002/j.1538-7305.1949.tb00928.x
+    <//dx.doi.org/10.1002%2Fj.1538-7305.1949.tb00928.x>. 
+ 5. *Jump up ^ <#cite_ref-5>* Miller, Frank (1882). /Telegraphic code to
+    insure privacy and secrecy in the transmission of telegrams/. C.M.
+    Cornwell. 
+ 6. ^ Jump up to: ^/*a*/ <#cite_ref-BELLOVIN1_6-0> ^/*b*/
+    <#cite_ref-BELLOVIN1_6-1> Bellovin, Steven M. (2011). "Frank Miller:
+    Inventor of the One-Time Pad"
+    <http://www.tandfonline.com/doi/abs/10.1080/01611194.2011.583711>.
+    /Cryptologia/. *35* (3): 203–222. doi
+    </wiki/Digital_object_identifier>:10.1080/01611194.2011.583711
+    <//dx.doi.org/10.1080%2F01611194.2011.583711>. ISSN
+    </wiki/International_Standard_Serial_Number> 0161-1194
+    <//www.worldcat.org/issn/0161-1194>. 
+ 7. *Jump up ^ <#cite_ref-Google_7-0>* "'Secret signaling system patent'
+    on Google.Com" <http://www.google.com/patents/US1310719>.
+    /google.com/. Retrieved 3 February 2016. 
+ 8. *Jump up ^ <#cite_ref-8>* Kahn, David </wiki/David_Kahn_(writer)>
+    (1996). /The Codebreakers </wiki/The_Codebreakers>/. Macmillan
+    </wiki/Macmillan_Publishers_(United_States)>. pp. 397–8. ISBN
+    </wiki/International_Standard_Book_Number> 0-684-83130-9
+    </wiki/Special:BookSources/0-684-83130-9>. 
+ 9. *Jump up ^ <#cite_ref-9>* "One-Time-Pad (Vernam's Cipher) Frequently
+    Asked Questions, with photo"
+    <http://www.ranum.com/security/computer_security/papers/otp-faq>.
+    Retrieved 2006-05-12. 
+10. *Jump up ^ <#cite_ref-10>* Savory, Stuart (2001).
+    "Chiffriergerätebau : One-Time-Pad, with photo"
+    <http://users.telenet.be/d.rijmenants/pics/otpbooklet1.jpg> (in
+    German). Retrieved 2006-07-24. 
+11. ^ Jump up to: ^/*a*/ <#cite_ref-kahn_11-0> ^/*b*/
+    <#cite_ref-kahn_11-1> ^/*c*/ <#cite_ref-kahn_11-2> Kahn, David
+    </wiki/David_Kahn_(writer)> (1967). /The Codebreakers
+    </wiki/The_Codebreakers>/. Macmillan
+    </wiki/Macmillan_Publishers_(United_States)>. pp. 398 ff. ISBN
+    </wiki/International_Standard_Book_Number> 0-684-83130-9
+    </wiki/Special:BookSources/0-684-83130-9>. 
+12. *Jump up ^ <#cite_ref-bio_12-0>* John Markoff </wiki/John_Markoff>
+    (July 25, 2011). "Codebook Shows an Encryption Form Dates Back to
+    Telegraphs"
+    <http://www.nytimes.com/2011/07/26/science/26code.html?ref=science>.
+    /New York Times </wiki/New_York_Times>/. Retrieved 2011-07-26. 
+13. ^ Jump up to: ^/*a*/ <#cite_ref-marks_13-0> ^/*b*/
+    <#cite_ref-marks_13-1> Marks, Leo (1998). /Between Silk and Cyanide:
+    a Codemaker's Story, 1941-1945/. HarperCollins. ISBN
+    </wiki/International_Standard_Book_Number> 0-684-86780-X
+    </wiki/Special:BookSources/0-684-86780-X>. 
+14. *Jump up ^ <#cite_ref-kotelnikov_14-0>* Sergei N Molotkov (Institute
+    of Solid-State Physics, Russian Academy of Sciences, Chernogolovka,
+    Moscow region, Russian Federation) (22 February 2006). "Quantum
+    cryptography and V A Kotel'nikov's one-time key and sampling
+    theorems"
+    <http://www.turpion.org/php/paper.phtml?journal_id=pu&paper_id=6050>. /Physics-Uspekhi/.
+    Institute of Solid-State Physics, Russian Academy of Sciences,
+    Chernogolovka, Moscow region, Russian Federation. *49* (7): 750–761.
+    doi
+    </wiki/Digital_object_identifier>:10.1070/PU2006v049n07ABEH006050
+    <//dx.doi.org/10.1070%2FPU2006v049n07ABEH006050>. Retrieved
+    2009-05-03.  CS1 maint: Multiple names: authors list (link
+    </wiki/Category:CS1_maint:_Multiple_names:_authors_list>) PACS
+    numbers: 01.10.Fv, 03.67.Dd, 89.70.+c and openly in Russian
+    Квантовая криптография и теоремы В.А. Котельникова об одноразовых
+    ключах и об отсчетах. УФН <http://www.ufn.ru/ru/articles/2006/7/k/>
+15. *Jump up ^ <#cite_ref-15>* Robert Wallace and H. Keith Melton, with
+    Henry R. Schlesinger (2008). /Spycraft: The Secret History of the
+    CIA's Spytechs, from Communism to al-Qaeda/. New York: Dutton
+    </wiki/Dutton_Penguin>. p. 452. ISBN
+    </wiki/International_Standard_Book_Number> 0-525-94980-1
+    </wiki/Special:BookSources/0-525-94980-1>. 
+16. *Jump up ^ <#cite_ref-16>* The actual length of a plaintext message
+    can hidden by the addition of extraneous parts, called padding
+    </wiki/Padding_(cryptography)>. For instance, a 21-character
+    ciphertext could conceal a 5-character message with some padding
+    convention (e.g. "-PADDING- HELLO -XYZ-") as much as an actual
+    21-character message: an observer can thus only deduce the maximum
+    possible length of the significant text, not its exact length.
+17. *Jump up ^ <#cite_ref-Shannon_17-0>* Shannon, Claude E. (October
+    1949). "Communication Theory of Secrecy Systems"
+    <http://www3.alcatel-lucent.com/bstj/vol28-1949/articles/bstj28-4-656.pdf>
+    (PDF). /Bell System Technical Journal/. USA: AT&T Corporation. *28*
+    (4): 656–715. doi
+    </wiki/Digital_object_identifier>:10.1002/j.1538-7305.1949.tb00928.x
+    <//dx.doi.org/10.1002%2Fj.1538-7305.1949.tb00928.x>. Retrieved
+    2011-12-21. 
+18. *Jump up ^ <#cite_ref-schneierotp_18-0>* Schneier, Bruce. "One-Time
+    Pads" <http://www.schneier.com/crypto-gram-0210.html#7>. 
+19. *Jump up ^ <#cite_ref-19>* Information theoretic security: Third
+    International Conference, ICITS 2008 ... By Reihanah Safavi-Naini[,
+    p.224
+    <https://books.google.com/books?id=ySZwUT4nyPsC&lpg=PA223&ots=FL9b9hl1LF&dq=malleable%20one%20time%20pad&pg=PR1#v=onepage&q=malleable%20one%20time%20pad&f=false>
+20. *Jump up ^ <#cite_ref-nsa_20-0>* "The Translations and KGB
+    Cryptographic Systems"
+    <http://www.nsa.gov/about/_files/cryptologic_heritage/publications/coldwar/venona_story.pdf>
+    (PDF). /The Venona Story/. Fort Meade, Maryland
+    </wiki/Fort_Meade,_Maryland>: National Security Agency
+    </wiki/National_Security_Agency>. 2004-01-15. pp. 26–27 (28–29th of
+    63 in PDF). Retrieved 2009-05-03. "...KGBs cryptographic material
+    manufacturing center in the Soviet Union apparently reused some of
+    the pages from one-time pads. This provided Arlington Hall
+    </wiki/Arlington_Hall> with an opening."  C1 control character in
+    ||quote=| at position 7 (help </wiki/Help:CS1_errors#invisible_char>)
+21. *Jump up ^ <#cite_ref-21>* A "way to combine multiple block
+    algorithms" so that "a cryptanalyst must break both algorithms" in
+    §15.8 of Applied Cryptography, Second Edition: Protocols,
+    Algorithms, and Source Code in C by Bruce Schneier. Wiley Computer
+    Publishing, John Wiley & Sons, Inc.
+22. *Jump up ^ <#cite_ref-22>* Introduction to modern cryptography, J
+    Katz, Y Lindell – 2008 – cs.biu.ac.il
+23. *Jump up ^ <#cite_ref-23>* Kahn, David </wiki/David_Kahn_(writer)>
+    (1996). /The Codebreakers </wiki/The_Codebreakers>/. Macmillan
+    </wiki/Macmillan_Publishers_(United_States)>. pp. 402–3. ISBN
+    </wiki/International_Standard_Book_Number> 0-684-83130-9
+    </wiki/Special:BookSources/0-684-83130-9>. 
+24. *Jump up ^ <#cite_ref-Sprach_Machine_24-0>* "Stasi Sprach Morse
+    Machine" <http://www.numbers-stations.com/sprach-machine>. The
+    Numbers Stations Research and Information Center. Retrieved March 1,
+    2015. 
+25. *Jump up ^ <#cite_ref-25>* Klein, Melville (2003). "Securing Record
+    Communications: The TSEC/KW-26"
+    <https://web.archive.org/web/20060213165531/http://www.nsa.gov/publications/publi00017.pdf>
+    (PDF). NSA. Archived from the original
+    <http://www.nsa.gov/publications/publi00017.pdf> (PDF) on
+    2006-02-13. Retrieved 2006-05-12. 
+26. *Jump up ^ <#cite_ref-26>* Kahn. /The Codebreakers
+    </wiki/The_Codebreakers>/. p. 715. 
+27. *Jump up ^ <#cite_ref-27>*
+    "http://www.seas.harvard.edu/courses/emr12/4.pdf, p. 91"
+28. *Jump up ^ <#cite_ref-28>* Jenkin, Tim (May–October 1995). "Talking
+    to Vula: The Story of the Secret Underground Communications Network
+    of Operation Vula" <http://www.anc.org.za/show.php?id=4693>.
+    /Mayibuye/. Retrieved 24 August 2014. "Our system was based on the
+    one-time pad, though instead of having paper pads the random numbers
+    were on a disk." 
+29. *Jump up ^ <#cite_ref-29>* Pidgeon, Geoffrey (2003). "Chapter 28:
+    Bill Miller – Tea with the Germans". /The Secret Wireless War – The
+    story of MI6 Communications 1939-1945/. UPSO Ltd. p. 249. ISBN
+    </wiki/International_Standard_Book_Number> 1-84375-252-2
+    </wiki/Special:BookSources/1-84375-252-2>. 
+30. *Jump up ^ <#cite_ref-30>* Erskine, Ralph, "Enigma's Security: What
+    the Germans Really Knew", in "Action this Day", edited by Ralph
+    Erskine and Michael Smith, pp 370–386, 2001.
+31. *Jump up ^ <#cite_ref-31>* "The Venona Translations"
+    <http://www.nsa.gov/about/_files/cryptologic_heritage/publications/coldwar/venona_story.pdf>
+    (PDF). /The Venona Story/. Fort Meade, Maryland
+    </wiki/Fort_Meade,_Maryland>: National Security Agency
+    </wiki/National_Security_Agency>. 2004-01-15. p. 17th (of 63 in PDF)
+    but marked 15. Retrieved 2009-05-03. "Arlington Halls ability to
+    read the VENONA messages was spotty, being a function of the
+    underlying code, key changes, and the lack of volume. Of the message
+    traffic from the KGB New York office to Moscow, 49 percent of the
+    1944 messages and 15 percent of the 1943 messages were readable, but
+    this was true of only 1.8 percent of the 1942 messages. For the 1945
+    KGB Washington office to Moscow messages, only 1.5 percent were
+    readable. About 50 percent of the 1943 GRU-Naval Washington to
+    Moscow/Moscow to Washington messages were read but none from any
+    other year."  C1 control character in ||quote=| at position 15 (help
+    </wiki/Help:CS1_errors#invisible_char>)
+
+
+    Further reading[edit
+    </w/index.php?title=One-time_pad&action=edit&section=15>]
+
+  * Rubina, Frank (1996). "One-Time Pad cryptography". /Cryptologia/.
+    *20* (4): 359–364. doi
+    </wiki/Digital_object_identifier>:10.1080/0161-119691885040
+    <//dx.doi.org/10.1080%2F0161-119691885040>. ISSN
+    </wiki/International_Standard_Serial_Number> 0161-1194
+    <//www.worldcat.org/issn/0161-1194>. 
+  * Fostera, Caxton C. (1997). "Drawbacks of the One-time Pad".
+    /Cryptologia/. *21* (4): 350–352. doi
+    </wiki/Digital_object_identifier>:10.1080/0161-119791885986
+    <//dx.doi.org/10.1080%2F0161-119791885986>. ISSN
+    </wiki/International_Standard_Serial_Number> 0161-1194
+    <//www.worldcat.org/issn/0161-1194>. 
+
+
+    External links[edit
+    </w/index.php?title=One-time_pad&action=edit&section=16>]
+
+  * Detailed description and history of One-time Pad
+    <http://users.telenet.be/d.rijmenants/en/onetimepad.htm> with
+    examples and images on Cipher Machines and Cryptology
+    <http://users.telenet.be/d.rijmenants>
+  * The FreeS/WAN </wiki/FreeS/WAN> glossary entry
+    <http://www.freeswan.org/freeswan_trees/freeswan-2.06/doc/glossary.html#OTP>
+    with a discussion of OTP weaknesses
+  * Guide to Secure Communications with the One-time Pad Cipher
+    <http://users.telenet.be/d.rijmenants/papers/one_time_pad.pdf>(pdf)
+    by Dirk Rijmenants
+  * Photographs of numerous OTP artifacts
+    <http://users.telenet.be/d.rijmenants/en/onetimepad.htm>
+  * Example of a one time pad paper system
+    <http://babkjl.wordpress.com/2012/03/18/one-time-pad-cryptography/>
+
+  * v </wiki/Template:Cryptography_classical>
+  * t </wiki/Template_talk:Cryptography_classical>
+  * e
+    <//en.wikipedia.org/w/index.php?title=Template:Cryptography_classical&action=edit>
+
+ 
+Classical cryptography </wiki/Classical_cipher>
+Ciphers
+by family 	
+Caesar </wiki/Caesar_cipher> 	
+
+  * Affine </wiki/Affine_cipher> (Atbash </wiki/Atbash>)
+  * ROT13 </wiki/ROT13>
+
+Null 	
+
+  * Null cipher </wiki/Null_cipher> (Null encryption
+    </wiki/Null_encryption>)
+
+One time pad 	
+
+  * Book </wiki/Book_cipher>
+  * *One-time pad*
+
+Polybius square </wiki/Polybius_square> 	
+
+  * ADFGVX </wiki/ADFGVX_cipher>
+  * Bifid </wiki/Bifid_cipher>
+  * Tap code </wiki/Tap_code>
+  * 3D (Trifid </wiki/Trifid_cipher>: Nihilist </wiki/Nihilist_cipher>
+    and VIC cipher </wiki/VIC_cipher>)
+
+Square 	
+
+  * Two-square </wiki/Two-square_cipher>
+  * Four-square </wiki/Four-square_cipher>
+
+Substitution cipher </wiki/Substitution_cipher> 	
+
+  * Autokey </wiki/Autokey_cipher>
+  * Chaocipher </wiki/Chaocipher>
+  * Great </wiki/Great_Cipher>
+  * Hill </wiki/Hill_cipher>
+  * Keyword </wiki/Keyword_cipher>
+  * Running key </wiki/Running_key_cipher>
+
+Transposition cipher </wiki/Transposition_cipher> 	
+
+  * Rail fence cipher </wiki/Rail_fence_cipher>
+
+Other 	
+
+  * Alberti </wiki/Alberti_cipher>
+  * BATCO </wiki/BATCO> (Slidex </wiki/Slidex>)
+  * Beaufort </wiki/Beaufort_cipher>
+  * Dvorak </wiki/Dvorak_encoding>
+  * Enigma </wiki/Enigma_machine>
+  * Kama Sutra </wiki/Vatsyayana_cipher>
+  * Navajo code </wiki/Navajo_code>
+  * Pigpen </wiki/Pigpen_cipher>
+  * Playfair </wiki/Playfair_cipher>
+  * Polyalphabetic </wiki/Polyalphabetic_cipher>
+  * Rasterschlüssel 44 </wiki/Rasterschl%C3%BCssel_44>
+  * Reihenschieber </wiki/Reihenschieber>
+  * Reservehandverfahren </wiki/Reservehandverfahren>
+  * Scytale </wiki/Scytale>
+  * Smithy code </wiki/Smithy_code>
+  * Solitaire </wiki/Solitaire_(cipher)>
+  * Straddling checkerboard </wiki/Straddling_checkerboard>
+  * Tabula recta </wiki/Tabula_recta>
+  * Transposition </wiki/Transposition_cipher>
+  * Trithemius </wiki/Trithemius_cipher>
+  * Vigenère </wiki/Vigen%C3%A8re_cipher>
+
+Cryptanalysis 	
+
+  * Frequency analysis </wiki/Frequency_analysis>
+  * Index of coincidence </wiki/Index_of_coincidence> (Units: Ban
+    </wiki/Ban_(unit)> and Nat </wiki/Nat_(unit)>)
+  * Information leakage </wiki/Information_leakage>
+  * Kasiski examination </wiki/Kasiski_examination>
+
+Miscellaneous 	
+
+  * Cryptogram </wiki/Cryptogram>
+  * Bacon </wiki/Bacon%27s_cipher>
+  * Scytale </wiki/Scytale>
+
+[show <#>]
+
+  * v </wiki/Template:Cryptography_navbox>
+  * t </wiki/Template_talk:Cryptography_navbox>
+  * e
+    <//en.wikipedia.org/w/index.php?title=Template:Cryptography_navbox&action=edit>
+
+Cryptography </wiki/Cryptography>
+
+  * History of cryptography </wiki/History_of_cryptography>
+  * Cryptanalysis </wiki/Cryptanalysis>
+  * Outline of cryptography </wiki/Outline_of_cryptography>
+
+  * Symmetric-key algorithm </wiki/Symmetric-key_algorithm>
+  * Block cipher </wiki/Block_cipher>
+  * Stream cipher </wiki/Stream_cipher>
+  * Public-key cryptography </wiki/Public-key_cryptography>
+  * Cryptographic hash function </wiki/Cryptographic_hash_function>
+  * Message authentication code </wiki/Message_authentication_code>
+  * Random numbers
+    </wiki/Cryptographically_secure_pseudorandom_number_generator>
+  * Steganography </wiki/Steganography>
+
+  * Category Category </wiki/Category:Cryptography>
+  * Portal Portal </wiki/Portal:Cryptography>
+  * WikiProject WikiProject </wiki/Wikipedia:WikiProject_Cryptography>
+
+Retrieved from
+"https://en.wikipedia.org/w/index.php?title=One-time_pad&oldid=747847676"
+Categories </wiki/Help:Category>:
+
+  * Information-theoretically secure algorithms
+    </wiki/Category:Information-theoretically_secure_algorithms>
+  * Stream ciphers </wiki/Category:Stream_ciphers>
+  * Cryptography </wiki/Category:Cryptography>
+  * 1882 introductions </wiki/Category:1882_introductions>
+
+Hidden categories:
+
+  * CS1 German-language sources (de)
+    </wiki/Category:CS1_German-language_sources_(de)>
+  * CS1 maint: Multiple names: authors list
+    </wiki/Category:CS1_maint:_Multiple_names:_authors_list>
+  * CS1 errors: invisible characters
+    </wiki/Category:CS1_errors:_invisible_characters>
+  * All articles with specifically marked weasel-worded phrases
+    </wiki/Category:All_articles_with_specifically_marked_weasel-worded_phrases>
+  * Articles with specifically marked weasel-worded phrases from August
+    2015
+    </wiki/Category:Articles_with_specifically_marked_weasel-worded_phrases_from_August_2015>
+  * Vague or ambiguous time from February 2015
+    </wiki/Category:Vague_or_ambiguous_time_from_February_2015>
+  * All articles with unsourced statements
+    </wiki/Category:All_articles_with_unsourced_statements>
+  * Articles with unsourced statements from February 2015
+    </wiki/Category:Articles_with_unsourced_statements_from_February_2015>
+  * Articles with unsourced statements from November 2010
+    </wiki/Category:Articles_with_unsourced_statements_from_November_2010>
+  * Articles with unsourced statements from March 2016
+    </wiki/Category:Articles_with_unsourced_statements_from_March_2016>
+
+
+    Navigation menu
+
+
+      Personal tools
+
+  * Not logged in
+  * Talk </wiki/Special:MyTalk>
+  * Contributions </wiki/Special:MyContributions>
+  * Create account
+    </w/index.php?title=Special:CreateAccount&returnto=One-time+pad>
+  * Log in </w/index.php?title=Special:UserLogin&returnto=One-time+pad>
+
+
+      Namespaces
+
+  * Article </wiki/One-time_pad>
+  * Talk </wiki/Talk:One-time_pad>
+
+
+      Variants<#>
+
+
+      Views
+
+  * Read </wiki/One-time_pad>
+  * Edit </w/index.php?title=One-time_pad&action=edit>
+  * View history </w/index.php?title=One-time_pad&action=history>
+
+
+      More<#>
+
+
+      Search
+
+</wiki/Main_Page>
+
+
+      Navigation
+
+  * Main page </wiki/Main_Page>
+  * Contents </wiki/Portal:Contents>
+  * Featured content </wiki/Portal:Featured_content>
+  * Current events </wiki/Portal:Current_events>
+  * Random article </wiki/Special:Random>
+  * Donate to Wikipedia
+    <https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&utm_medium=sidebar&utm_campaign=C13_en.wikipedia.org&uselang=en>
+  * Wikipedia store <//shop.wikimedia.org>
+
+
+      Interaction
+
+  * Help </wiki/Help:Contents>
+  * About Wikipedia </wiki/Wikipedia:About>
+  * Community portal </wiki/Wikipedia:Community_portal>
+  * Recent changes </wiki/Special:RecentChanges>
+  * Contact page <//en.wikipedia.org/wiki/Wikipedia:Contact_us>
+
+
+      Tools
+
+  * What links here </wiki/Special:WhatLinksHere/One-time_pad>
+  * Related changes </wiki/Special:RecentChangesLinked/One-time_pad>
+  * Upload file </wiki/Wikipedia:File_Upload_Wizard>
+  * Special pages </wiki/Special:SpecialPages>
+  * Permanent link </w/index.php?title=One-time_pad&oldid=747847676>
+  * Page information </w/index.php?title=One-time_pad&action=info>
+  * Wikidata item <https://www.wikidata.org/wiki/Q150474>
+  * Cite this page
+    </w/index.php?title=Special:CiteThisPage&page=One-time_pad&id=747847676>
+
+
+      Print/export
+
+  * Create a book
+    </w/index.php?title=Special:Book&bookcmd=book_creator&referer=One-time+pad>
+  * Download as PDF
+    </w/index.php?title=Special:Book&bookcmd=render_article&arttitle=One-time+pad&returnto=One-time+pad&oldid=747847676&writer=rdf2latex>
+  * Printable version </w/index.php?title=One-time_pad&printable=yes>
+
+
+      Languages
+
+  * العربية
+    <https://ar.wikipedia.org/wiki/%D9%84%D9%88%D8%AD%D8%A9_%D8%A7%D9%84%D9%85%D8%B1%D8%A9_%D8%A7%D9%84%D9%88%D8%A7%D8%AD%D8%AF%D8%A9>
+  * Bosanski <https://bs.wikipedia.org/wiki/One-time_pad>
+  * Català <https://ca.wikipedia.org/wiki/Bloc_d%27un_sol_%C3%BAs>
+  * Čeština <https://cs.wikipedia.org/wiki/Vernamova_%C5%A1ifra>
+  * Dansk <https://da.wikipedia.org/wiki/One-time_pad>
+  * Deutsch <https://de.wikipedia.org/wiki/One-Time-Pad>
+  * Español <https://es.wikipedia.org/wiki/Libreta_de_un_solo_uso>
+  * فارسی
+    <https://fa.wikipedia.org/wiki/%D9%BE%D8%AF_%DB%8C%DA%A9%E2%80%8C%D8%A8%D8%A7%D8%B1_%D9%85%D8%B5%D8%B1%D9%81>
+  * Français <https://fr.wikipedia.org/wiki/Masque_jetable>
+  * Hrvatski <https://hr.wikipedia.org/wiki/Jednokratni_klju%C4%8D>
+  * Italiano <https://it.wikipedia.org/wiki/Cifrario_di_Vernam>
+  * עברית
+    <https://he.wikipedia.org/wiki/%D7%A4%D7%A0%D7%A7%D7%A1_%D7%97%D7%93-%D7%A4%D7%A2%D7%9E%D7%99>
+  * Lietuvių <https://lt.wikipedia.org/wiki/Vienkartinis_bloknotas>
+  * Lumbaart <https://lmo.wikipedia.org/wiki/Cifrari_del_Vernam>
+  * Nederlands <https://nl.wikipedia.org/wiki/One-time_pad>
+  * 日本語
+    <https://ja.wikipedia.org/wiki/%E3%83%AF%E3%83%B3%E3%82%BF%E3%82%A4%E3%83%A0%E3%83%91%E3%83%83%E3%83%89>
+  * Norsk bokmål <https://no.wikipedia.org/wiki/Engangsn%C3%B8kkel>
+  * Polski <https://pl.wikipedia.org/wiki/Szyfr_z_kluczem_jednorazowym>
+  * Português <https://pt.wikipedia.org/wiki/One-time_pad>
+  * Русский
+    <https://ru.wikipedia.org/wiki/%D0%A8%D0%B8%D1%84%D1%80_%D0%92%D0%B5%D1%80%D0%BD%D0%B0%D0%BC%D0%B0>
+  * Shqip <https://sq.wikipedia.org/wiki/One-time_pad>
+  * Simple English <https://simple.wikipedia.org/wiki/One-time_pad>
+  * Svenska <https://sv.wikipedia.org/wiki/Eng%C3%A5ngskrypto>
+  * Türkçe
+    <https://tr.wikipedia.org/wiki/Tek_kullan%C4%B1ml%C4%B1k_%C5%9Ferit>
+  * Українська
+    <https://uk.wikipedia.org/wiki/%D0%A8%D0%B8%D1%84%D1%80_%D0%92%D0%B5%D1%80%D0%BD%D0%B0%D0%BC%D0%B0>
+  * 中文
+    <https://zh.wikipedia.org/wiki/%E4%B8%80%E6%AC%A1%E6%80%A7%E5%AF%86%E7%A2%BC%E6%9C%AC>
+
+Edit links <https://www.wikidata.org/wiki/Q150474#sitelinks-wikipedia>
+
+  * This page was last modified on 4 November 2016, at 18:43.
+  * Text is available under the Creative Commons Attribution-ShareAlike
+    License
+    <//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License><//creativecommons.org/licenses/by-sa/3.0/>;
+    additional terms may apply. By using this site, you agree to the
+    Terms of Use <//wikimediafoundation.org/wiki/Terms_of_Use> and
+    Privacy Policy <//wikimediafoundation.org/wiki/Privacy_policy>.
+    Wikipedia® is a registered trademark of the Wikimedia Foundation,
+    Inc. <//www.wikimediafoundation.org/>, a non-profit organization.
+
+  * Privacy policy <https://wikimediafoundation.org/wiki/Privacy_policy>
+  * About Wikipedia </wiki/Wikipedia:About>
+  * Disclaimers </wiki/Wikipedia:General_disclaimer>
+  * Contact Wikipedia <//en.wikipedia.org/wiki/Wikipedia:Contact_us>
+  * Developers
+    <https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute>
+  * Cookie statement <https://wikimediafoundation.org/wiki/Cookie_statement>
+  * Mobile view
+    <//en.m.wikipedia.org/w/index.php?title=One-time_pad&mobileaction=toggle_view_mobile>
+
+  * Wikimedia Foundation <https://wikimediafoundation.org/>	
+  * Powered by MediaWiki <//www.mediawiki.org/>	
+
