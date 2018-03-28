@@ -1,3 +1,8 @@
+[docker]:  http://52.36.73.75:9000/ "docker instance"
+#start
+you can find these programs and others at [docker].
+
+
 ## an bash shell emulator
 this is a simple bash program that run background processes, redirect file i/o,
 and launch any program from the terminal. 
